@@ -1,0 +1,163 @@
+finish
+/clear
+/prep7
+et,1,beam188
+uimp,1,ex,dens,prxy,3.5e10,2600,0.15
+
+!***************************
+!截面
+SECTYPE,1,BEAM,MESH,
+SECOFFSET,ORIG,,,   
+SECREAD,'s1','SECT',' ',MESH
+
+SECTYPE,2,BEAM,MESH,
+SECOFFSET,ORIG,,,   
+SECREAD,'s2','SECT',' ',MESH
+
+SECTYPE,3,BEAM,MESH,
+SECOFFSET,ORIG,,,   
+SECREAD,'s3','SECT',' ',MESH
+
+SECTYPE,4,BEAM,MESH,
+SECOFFSET,ORIG,,,   
+SECREAD,'s4','SECT',' ',MESH
+
+SECTYPE,8, BEAM, RECT, , 0   
+SECOFFSET, CENT 
+SECDATA,2,2
+
+!***************************
+!截面
+SECTYPE,101,TAPER
+SECDATA,   1,0,0,0
+SECDATA,   2,3,0,0
+
+SECTYPE,102,TAPER
+SECDATA,   2,3,0,0
+SECDATA,   3,6,0,0
+
+SECTYPE,103,TAPER
+SECDATA,   3,6,0,0
+SECDATA,   4,10,0,0
+
+SECTYPE,201,TAPER
+SECDATA,   4,10,0,0
+SECDATA,   3,14,0,0
+
+SECTYPE,202,TAPER
+SECDATA,   3,14,0,0
+SECDATA,   2,17,0,0
+
+SECTYPE,203,TAPER
+SECDATA,   2,17,0,0
+SECDATA,   1,20,0,0
+
+SECTYPE,301,TAPER
+SECDATA,   1,20,0,0
+SECDATA,   2,23,0,0
+
+SECTYPE,302,TAPER
+SECDATA,   2,23,0,0
+SECDATA,   3,26,0,0
+
+SECTYPE,303,TAPER
+SECDATA,   3,26,0,0
+SECDATA,   4,30,0,0
+
+SECTYPE,401,TAPER
+SECDATA,   4,30,0,0
+SECDATA,   3,34,0,0
+
+SECTYPE,402,TAPER
+SECDATA,   3,34,0,0
+SECDATA,   2,37,0,0
+
+SECTYPE,403,TAPER
+SECDATA,   2,37,0,0
+SECDATA,   1,40,0,0
+
+!***************************
+!节点
+N,10000,0,10,0
+
+N,1,0,0,0   
+N,11,10,0,0
+N,21,20,0,0
+N,31,30,0,0   
+N,41,40,0,0
+FILL,1,41
+
+N,42,10,-0.5,0
+N,51,10,-10,0
+N,52,30,-0.5,0
+N,61,30,-10,0
+FILL,42,51
+FILL,52,61
+
+!***************************
+! 主梁
+secnum,101 
+*DO,I,1,3
+    E,I,I+1,10000
+*ENDDO   
+secnum,102 
+*DO,I,4,6
+    E,I,I+1,10000
+*ENDDO  
+secnum,103 
+*DO,I,6,10
+    E,I,I+1,10000
+*ENDDO
+
+secnum,201 
+*DO,I,10,14
+    E,I,I+1,10000
+*ENDDO   
+secnum,202 
+*DO,I,14,17
+    E,I,I+1,10000
+*ENDDO  
+secnum,203 
+*DO,I,17,20
+    E,I,I+1,10000
+*ENDDO
+
+secnum,301 
+*DO,I,21,23
+    E,I,I+1,10000
+*ENDDO   
+secnum,302 
+*DO,I,24,26
+    E,I,I+1,10000
+*ENDDO  
+secnum,303 
+*DO,I,26,30
+    E,I,I+1,10000
+*ENDDO
+
+secnum,401 
+*DO,I,30,34
+    E,I,I+1,10000
+*ENDDO   
+secnum,402 
+*DO,I,34,37
+    E,I,I+1,10000
+*ENDDO  
+secnum,403 
+*DO,I,37,40
+    E,I,I+1,10000
+*ENDDO
+
+!***************************
+! 桥墩
+SECNUM,8
+*DO,I,42,50
+	E,I,I+1,10000
+*ENDDO
+
+*DO,I,52,60
+	E,I,I+1,10000
+*ENDDO
+
+CERIG,11,42,ALL
+CERIG,31,52,ALL
