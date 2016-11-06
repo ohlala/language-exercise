@@ -35,6 +35,10 @@ void oddeven(char s[]){
 	}
 	s[j+k] = '\0';
 }
+//形参为指向函数的指针，对应实参可为相应格式的函数名。
+//第一个char s[]表示函数指针指向的函数接受的类型是char s[]
+//第二个char s[]表示cipher函数接受的一个char s[]
+//函数体中 	(*f)(s)等价于caesar(arr) 或 oddeven(arr) 
 void cipher(void (*f)(char s[]),char s[]){
 	(*f)(s);
 }
@@ -44,9 +48,9 @@ int main(){
 	char arr[100];
 	cin.getline(arr,100);
 	cin >> n;
-	void (*f)(char s[]);
+	void (*f)(char s[]);	//声明一个函数指针 
 	if (n == 1)
-	    f = caesar;
+	    f = caesar;		//求使用函数指针来切换加密函数,f指向函数名 
 	else
 	    f = oddeven;
 	cipher(f, arr);

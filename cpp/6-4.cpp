@@ -38,7 +38,6 @@ int print (int arr[],int n){
 	cout << arr[n-1];
 }
 
-
 int main()
 {
 int a,b,c,d;

@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+
 int imax (int arr[],int n){
-    static int max;
+    static int max;		//max是库函数尽量不要使用 
     if (n == 1){
         max = arr[0];
         return max; 
@@ -24,4 +25,3 @@ int main(){
     cout << imax(arr, n);
     return 0;
 }
-

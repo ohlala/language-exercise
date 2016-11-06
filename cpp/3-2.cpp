@@ -2,7 +2,6 @@
 using namespace std;
 
 int main(){
-	
 	double score[10], max, min, sum = 0;
 	for (int i = 0; i < 10; i++){
 		cin >> score[i];	

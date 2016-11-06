@@ -4,9 +4,7 @@
 //其中参数count为数组中的元素个数，函数的返回值即为求得的最大
 //或最小元素之值。要求同时编写出主函数进行验证。
 #include<iostream>
-#include<string>
 using namespace std;
-void mystrrev(char str[]);
 
 int imax(int array[], int count){
 	int max = array[0];
@@ -32,6 +30,4 @@ int main(){
     min = imin(arr, n);
 	cout << max <<endl << min;
     return 0;
-} 
-
-
+}
