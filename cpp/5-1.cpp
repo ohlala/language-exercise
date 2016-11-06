@@ -2,7 +2,7 @@
 //（前变后，后变前）。然后再编写主函数验证之。注意，输入输出应在主函数中进行。
 //函数原型为 void mystrrev(char str[]) 
 #include<iostream>
-#include<cstring>
+#include<string>
 using namespace std;
 void mystrrev(char str[]);
 
@@ -15,8 +15,9 @@ int main(){
 } 
 void mystrrev(char str[]){
 	int i = 0, j, temp;
-	j = strlen(str);
-//    for (j = 0; str[j] != '\0'; j++);
+//	j = strlen(str) - 1;
+    for (j = 0; str[j] != '\0'; j++)
+	    ;
 	j--;
 	while (i < j){
 		temp = str[i];
@@ -24,4 +25,6 @@ void mystrrev(char str[]){
 		str[j] = temp;
 		i++; j--;
 	}
-}
+} 
+
+
