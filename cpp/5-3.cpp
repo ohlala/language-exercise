@@ -4,7 +4,7 @@
 #include<cmath>
 using namespace std;
 int isprime(int a){
-	if (a == 1)
+	if (a == 1)			//¿¼ÂÇ±ß½çÇé¿ö 
 	    return 0;
     int flag = 1;
 	for (int i = 2; i <= sqrt(a); i++){
