@@ -29,7 +29,7 @@ public:
 	//void Print(); //输出圆心坐标和半径，并使用基类的Print 
 	
 
-	//声明和实现不能放在同一个文件里
+	//声明和实现可以放在一个文件夹里 但是实现要使用二元作用域解析运算符::(即     返回值 类型类名::函数名(参数列表)  )  
 	Circle(int x = 0, int y = 0 , double r = 0.0) :Point(x, y) 	//　只能在函数实现里这样写，声明不可以！
 	//Point (x, y) 而不是 Point (int x, int y)！！
 	//Point (x, y)相当于把刚接收的构造函数Circle的x,y传给Point的构造函数
