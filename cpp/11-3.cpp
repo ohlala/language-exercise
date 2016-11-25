@@ -26,7 +26,7 @@ class Student: public Person
     Person Monitor;
 public:
     Student(char *name, int age, char *classname, char *name1, int age1)
-	 :Person(name, age),Monitor(name1,age1)// 使用这种形式来为ｍｏｎｉｔｏｒ初始化
+	 :Person(name, age),Monitor(name1,age1)// 使用这种形式来为monitor初始化!!!!!!!!
     {
 	//Monitor(name1, age1);
         strcpy(ClassName, classname);
