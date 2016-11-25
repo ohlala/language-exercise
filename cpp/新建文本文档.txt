@@ -1,0 +1,7 @@
+1-2		cin.getline(char array[], int size, delimitChar);
+			遇到指定分隔符或者已经读入size-1个字符时停止默认分隔符为（'\n'）。 
+2-3		static_cast<int>(x * 100)/100.0;	保留两位小数 
+
+6-1		max是库函数尽量不要使用 
+6-5		递归时用return回跳出当前运行的函数。也可以不使用return
+			在递归调用之后还继续运行其他语句，使函数到尾部自动停止执行返回上一层 
