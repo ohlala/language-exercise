@@ -2,6 +2,7 @@
 #include<cstring>
 using namespace std;
 
+//åŠæ—¶ä½¿ç”¨è¾“å‡ºæ¥è¿›è¡Œè°ƒè¯•
 class Person
 { 
 protected:
@@ -14,16 +15,16 @@ public:
 		strcpy(Name, name);
         Age = age;
         Sex = sex;
-		//strcpy(Sex, sex); 	//ÕâÑùĞ´ÓĞÎÊÌâ°¡£¡£¡£¡  ²»ÄÜ×Ö·û´®Êı×é¸ø×Ö·ûÖ¸Õë 
+		//strcpy(Sex, sex); 	//è¿™æ ·å†™æœ‰é—®é¢˜å•Šï¼ï¼ï¼  ä¸èƒ½å­—ç¬¦ä¸²æ•°ç»„ç»™å­—ç¬¦æŒ‡é’ˆ 
     }
     void ShowMe()
     {
-    	cout << "ĞÕÃû " << Name << endl;
-    	cout << "ĞÔ±ğ " << (*Sex == 'm'? "ÄĞ":"Å®") << endl << "ÄêÁä " << Age << endl;
+    	cout << "å§“å " << Name << endl;
+    	cout << "æ€§åˆ« " << (*Sex == 'm'? "ç”·":"å¥³") << endl << "å¹´é¾„ " << Age << endl;
     }
 };
 
-class Teacher: virtual public Person	//ÁâĞÎ¶àÖØÅÉÉú±ØĞëÊ¹ÓÃvirtualĞéÄâ¼Ì³Ğ 
+class Teacher: virtual public Person	//è±å½¢å¤šé‡æ´¾ç”Ÿå¿…é¡»ä½¿ç”¨virtualè™šæ‹Ÿç»§æ‰¿ 
 {
     char Dept[20];
     int Salary;
@@ -36,7 +37,7 @@ public:
     }
     void Show()
     {
-    	cout <<"¹¤×÷µ¥Î» "<< Dept <<endl << "ÔÂĞ½ " << Salary;
+    	cout <<"å·¥ä½œå•ä½ "<< Dept <<endl << "æœˆè–ª " << Salary;
     }
 };
 
@@ -53,8 +54,8 @@ public:
     }
     void Show()
     {
-    	cout << "°à¼¶ " << Class << endl;
-		cout << "Ñ§ºÅ " << ID << endl;
+    	cout << "ç­çº§ " << Class << endl;
+		cout << "å­¦å· " << ID << endl;
     }
 };
 
@@ -62,12 +63,12 @@ class Graduate : public Teacher, Student
 {
 public:
 	Graduate(char *name,int age,char *sex,char *dept,int salary,char *id,char *classid)
-		: Teacher(name, age, sex, dept, salary), Student(name, age, sex, id, classid)	//ÓÃĞé¼Ì³Ğ!!!! 
+		: Teacher(name, age, sex, dept, salary), Student(name, age, sex, id, classid)	//ç”¨è™šç»§æ‰¿!!!! 
 	{	}
 	void ShowMe()
 	{
 		Student :: Show();
-		Person :: ShowMe(); 	//'Person' is an ambiguous base of 'Geaduate'£¿  Ğé¼Ì³Ğ¾ÍºÃÁË 
+		Person :: ShowMe(); 	//'Person' is an ambiguous base of 'Geaduate'ï¼Ÿ  è™šç»§æ‰¿å°±å¥½äº† 
 		Teacher :: Show();
 	}
 };
@@ -76,13 +77,13 @@ int main(){
     char Name[20];
     int Age;
     char Sex[2];
-//	char *Sex;			//´ó¸ÅÊÇÊäÈë¿Õ¸ñ²»»á¶Ï¿ª°É£¿£¿£¿£¿ 
+//	char *Sex;			//å¤§æ¦‚æ˜¯è¾“å…¥ç©ºæ ¼ä¸ä¼šæ–­å¼€å§ï¼Ÿï¼Ÿï¼Ÿï¼Ÿ 
 	char Dept[20]; 
 	int Salary;
 	char Num[12];
 	char ClassName[20];   
     cin >> Name >> Age >> Sex >> Dept >> Salary >> Num >> ClassName;
-//    cout << Name << Age << Sex << Dept << Salary << Num << ClassName;
+//    cout << Name << Age << Sex << Dept << Salary << Num << ClassName;		//ä¸ºä»€ä¹ˆä¹‹å‰æ²¡æœ‰ä½¿ç”¨è™šæ‹Ÿç»§æ‰¿çš„æ—¶å€™ä¼šå½±å“èƒ½å¦è¿è¡Œï¼Ÿ
     Graduate gra(Name, Age, Sex, Dept, Salary, Num, ClassName);
     gra.ShowMe();
 }
