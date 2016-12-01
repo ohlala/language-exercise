@@ -4,8 +4,10 @@ using namespace std;
 
 class Pet
 {  
-protected:	//ä¸ºä»€ä¹ˆä¸èƒ½æ˜¯ç§æœ‰æˆå‘˜   
-//åŒ11-3,ç§æœ‰çš„æˆå‘˜ä¸èƒ½è¢«ç»§æ‰¿,åŸºç±»ä¸­çš„æˆå‘˜å‡½æ•°å¯ä»¥è®¿é—®åŸºç±»ä¸­çš„ç§æœ‰æ•°æ®ï¼Œä½†æ˜¯æ´¾ç”Ÿç±»ä¸­çš„æˆå‘˜å‡½æ•°ä¸å¯ä»¥ï¼Œä»–åªèƒ½è®¿é—®è‡ªå·±å¢žåŠ çš„æ•°æ®æˆå‘˜ã€‚æœ‰ä¸¤ç§æ–¹å¼ï¼Œä¸€æ˜¯é€šè¿‡åŸºç±»çš„æˆå‘˜å‡½æ•°è®¿é—®ï¼ˆ11-3ï¼‰ï¼ŒäºŒæ˜¯å°†åŸºç±»çš„æ•°æ®æˆå‘˜å®šä¹‰ä¸ºä¿æŠ¤ç±»åž‹ã€‚
+protected:	//ÎªÊ²Ã´²»ÄÜÊÇË½ÓÐ³ÉÔ±   
+//Í¬11-3,Ë½ÓÐµÄ³ÉÔ±²»ÄÜ±»¼Ì³Ð,»ùÀàÖÐµÄ³ÉÔ±º¯Êý¿ÉÒÔ·ÃÎÊ»ùÀàÖÐµÄË½ÓÐÊý¾Ý£¬
+//µ«ÊÇÅÉÉúÀàÖÐµÄ³ÉÔ±º¯Êý²»¿ÉÒÔ£¬ËûÖ»ÄÜ·ÃÎÊ×Ô¼ºÔö¼ÓµÄÊý¾Ý³ÉÔ±¡£ÓÐÁ½ÖÖ·½Ê½£¬
+//Ò»ÊÇÍ¨¹ý»ùÀàµÄ³ÉÔ±º¯Êý·ÃÎÊ£¨11-3£©£¬¶þÊÇ½«»ùÀàµÄÊý¾Ý³ÉÔ±¶¨ÒåÎª±£»¤ÀàÐÍ¡£
 
     char name[10];
     int age;
@@ -17,24 +19,25 @@ public:
         strcpy(color, co);
         age =ag;
     }
-    virtual void GetInfo() = 0;
+    virtual void GetInfo() = 0;		//´¿Ðéº¯Êý 
     virtual void Speak() = 0;
 };
 
 class Cat :public Pet
 {
  public:
-    Cat(char* name, int age, char* color)	//è¦æœ‰æž„é€ å‡½æ•°ï¼Œå¦åˆ™æ— æ³•è°ƒç”¨åŸºç±»çš„æž„é€ å‡½æ•°ã€‚è¦æ˜¯å…¬å…±æˆå‘˜ï¼Œä¸»å‡½æ•°æ— æ³•è®¿é—®æž„é€ å‡½æ•°ã€‚
+ 	//ÒªÓÐ¹¹Ôìº¯Êý£¬·ñÔòÎÞ·¨µ÷ÓÃ»ùÀàµÄ¹¹Ôìº¯Êý¡£Ó¦ÊÇ¹«¹²³ÉÔ±£¬·ñÔòÖ÷º¯ÊýÎÞ·¨·ÃÎÊ¹¹Ôìº¯Êý¡£
+    Cat(char* name, int age, char* color)	
 	:Pet(name, age, color){} 
     void GetInfo()
     {
-        cout << "çŒ«çš„åå­—:" << name << endl;
-        cout << "çŒ«çš„å¹´é¾„:" << age << endl;
-        cout << "çŒ«çš„é¢œè‰²:" << color << endl;
+        cout << "Ã¨µÄÃû×Ö:" << name << endl;	//ÕâÀïÒª·ÃÎÊ»ùÀàÊý¾Ý³ÉÔ±£¬¹Ê»ùÀàÊý¾Ý³ÉÔ±Îª±£»¤ÀàÐÍ 
+        cout << "Ã¨µÄÄêÁä:" << age << endl;
+        cout << "Ã¨µÄÑÕÉ«:" << color << endl;
     }
     void Speak()
     {
-       cout << "çŒ«çš„å«å£°:" << "miao!miao!" << endl;
+       cout << "Ã¨µÄ½ÐÉù:" << "miao!miao!" << endl;
     }
 };
 
@@ -45,20 +48,20 @@ public:
 	:Pet(name, age, color){}
     void GetInfo()
     {
-        cout << "ç‹—çš„åå­—:" << name << endl;
-        cout << "ç‹—çš„å¹´é¾„:" << age << endl;
-        cout << "ç‹—çš„é¢œè‰²:" << color << endl;
+        cout << "¹·µÄÃû×Ö:" << name << endl;
+        cout << "¹·µÄÄêÁä:" << age << endl;
+        cout << "¹·µÄÑÕÉ«:" << color << endl;
     }
     void Speak()
     {
-       cout  << "ç‹—çš„å«å£°:" << "wang!wang!" << endl;
+       cout  << "¹·µÄ½ÐÉù:" << "wang!wang!" << endl;
    }
 };
 
  int main()
 {
     Pet *po;
-    char na1[10], na2[10], co1[10], co2[10];	//éœ€è¦è®¾ç½®æ•°ç»„å¤§å°
+    char na1[10], na2[10], co1[10], co2[10];	//ÐèÒªÉèÖÃÊý×é´óÐ¡
     int ag1, ag2;
     cin >> na1 >> ag1 >> co1;
     cin >> na2 >> ag2 >> co2;
